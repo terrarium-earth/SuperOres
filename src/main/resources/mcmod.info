@@ -1,0 +1,16 @@
+[
+{
+  "modid": "superores",
+  "name": "SuperOres",
+  "description": "A mod made for extra resources.",
+  "version": "${version}",
+  "mcversion": "1.12",
+  "url": "https://minecraft.curseforge.com/projects/super-ores",
+  "updateUrl": "",
+  "authorList": ["abused_mater"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

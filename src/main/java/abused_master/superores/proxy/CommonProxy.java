@@ -1,0 +1,50 @@
+package abused_master.superores.proxy;
+
+import abused_master.superores.registry.ModBlocks;
+import abused_master.superores.registry.SuperOresGeneration;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+@Mod.EventBusSubscriber
+public class CommonProxy {
+
+    public void preInit(FMLPreInitializationEvent e) {
+    }
+
+    public void init(FMLInitializationEvent e) {
+        GameRegistry.registerWorldGenerator(new SuperOresGeneration(), 0);
+    }
+
+    public void postInit(FMLPostInitializationEvent e) {
+    }
+
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        event.getRegistry().register(ModBlocks.CoalOre);
+        event.getRegistry().register(ModBlocks.IronOre);
+        event.getRegistry().register(ModBlocks.RedstoneOre);
+        event.getRegistry().register(ModBlocks.LapisOre);
+        event.getRegistry().register(ModBlocks.GoldOre);
+        event.getRegistry().register(ModBlocks.DiamondOre);
+        event.getRegistry().register(ModBlocks.EmeraldOre);
+    }
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        event.getRegistry().register(new ItemBlock(ModBlocks.CoalOre).setRegistryName(ModBlocks.CoalOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.IronOre).setRegistryName(ModBlocks.IronOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.RedstoneOre).setRegistryName(ModBlocks.RedstoneOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.LapisOre).setRegistryName(ModBlocks.LapisOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.GoldOre).setRegistryName(ModBlocks.GoldOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.DiamondOre).setRegistryName(ModBlocks.DiamondOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.EmeraldOre).setRegistryName(ModBlocks.EmeraldOre.getRegistryName()));
+    }
+}

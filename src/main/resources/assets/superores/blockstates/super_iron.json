@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "normal": { "model": "superores:super_iron" },
+        "inventory": { "model": "superores:super_iron" }
+    }
+}
