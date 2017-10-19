@@ -23,14 +23,31 @@ public class SuperOresGeneration implements IWorldGenerator {
     private WorldGenerator RedstoneOre;
     private WorldGenerator LapisOre;
 
+    private WorldGenerator AluminumOre;
+    private WorldGenerator CopperOre;
+    private WorldGenerator SilverOre;
+    private WorldGenerator NickelOre;
+    private WorldGenerator LeadOre;
+    private WorldGenerator UraniumOre;
+    private WorldGenerator OsmiumOre;
+
+
     public SuperOresGeneration() {
+        this.AluminumOre = new WorldGenMinable(ModBlocks.AluminumOre.getDefaultState(), 3);
+        this.CopperOre = new WorldGenMinable(ModBlocks.CopperOre.getDefaultState(), 3);
+        this.SilverOre = new WorldGenMinable(ModBlocks.SilverOre.getDefaultState(), 3);
+        this.NickelOre = new WorldGenMinable(ModBlocks.NickelOre.getDefaultState(), 3);
+        this.LeadOre = new WorldGenMinable(ModBlocks.LeadOre.getDefaultState(), 4);
+        this.UraniumOre = new WorldGenMinable(ModBlocks.UraniumOre.getDefaultState(), 3);
+        this.OsmiumOre = new WorldGenMinable(ModBlocks.OsmiumOre.getDefaultState(), 3);
+
         this.DiamondOre = new WorldGenMinable(ModBlocks.DiamondOre.getDefaultState(), 2);
         this.EmeraldOre = new WorldGenMinable(ModBlocks.EmeraldOre.getDefaultState(), 2);
-        this.IronOre = new WorldGenMinable(ModBlocks.IronOre.getDefaultState(), 4);
+        this.IronOre = new WorldGenMinable(ModBlocks.IronOre.getDefaultState(), 3);
         this.GoldOre = new WorldGenMinable(ModBlocks.GoldOre.getDefaultState(), 3);
-        this.CoalOre = new WorldGenMinable(ModBlocks.CoalOre.getDefaultState(), 5);
-        this.RedstoneOre = new WorldGenMinable(ModBlocks.RedstoneOre.getDefaultState(), 4);
-        this.LapisOre = new WorldGenMinable(ModBlocks.LapisOre.getDefaultState(), 4);
+        this.CoalOre = new WorldGenMinable(ModBlocks.CoalOre.getDefaultState(), 4);
+        this.RedstoneOre = new WorldGenMinable(ModBlocks.RedstoneOre.getDefaultState(), 3);
+        this.LapisOre = new WorldGenMinable(ModBlocks.LapisOre.getDefaultState(), 3);
     }
 
     private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
@@ -60,36 +77,32 @@ public class SuperOresGeneration implements IWorldGenerator {
                 this.runGenerator(this.RedstoneOre, world, random, chunkX, chunkZ, Config.RedstoneOreRate, 0, 40);
                 this.runGenerator(this.LapisOre, world, random, chunkX, chunkZ, Config.LapisOreRate, 0, 256);
 
-                if(OreDictionary.doesOreNameExist(ModdedResources.Copper)) {
-
+                if(ModdedResources.Copper.doesOreExist()) {
+                    this.runGenerator(this.CopperOre, world, random, chunkX, chunkZ, Config.CopperOreRate, 0, 64);
                 }
 
-                if(OreDictionary.doesOreNameExist(ModdedResources.Aluminum)) {
-
+                if(ModdedResources.Aluminum.doesOreExist()) {
+                    this.runGenerator(this.AluminumOre, world, random, chunkX, chunkZ, Config.AluminumOreDrop, 0, 64);
                 }
 
-                if(OreDictionary.doesOreNameExist(ModdedResources.Lead)) {
-
+                if(ModdedResources.Lead.doesOreExist()) {
+                    this.runGenerator(this.LeadOre, world, random, chunkX, chunkZ, Config.LeadOreRate, 0, 50);
                 }
 
-                if(OreDictionary.doesOreNameExist(ModdedResources.Nickel)) {
-
+                if(ModdedResources.Nickel.doesOreExist()) {
+                    this.runGenerator(this.NickelOre, world, random, chunkX, chunkZ, Config.NickelOreRate, 0, 50);
                 }
 
-                if(OreDictionary.doesOreNameExist(ModdedResources.Osmium)) {
-
+                if(ModdedResources.Osmium.doesOreExist()) {
+                    this.runGenerator(this.OsmiumOre, world, random, chunkX, chunkZ, Config.OsmiumOreRate, 0, 40);
                 }
 
-                if(OreDictionary.doesOreNameExist(ModdedResources.Silver)) {
-
+                if(ModdedResources.Silver.doesOreExist()) {
+                    this.runGenerator(this.SilverOre, world, random, chunkX, chunkZ, Config.SilverOreRate, 0, 35);
                 }
 
-                if(OreDictionary.doesOreNameExist(ModdedResources.Uranium)) {
-
-                }
-
-                if(OreDictionary.doesOreNameExist(ModdedResources.Steel)) {
-
+                if(ModdedResources.Uranium.doesOreExist()) {
+                    this.runGenerator(this.UraniumOre, world, random, chunkX, chunkZ, Config.UraniumOreRate, 0, 25);
                 }
 
                 break;

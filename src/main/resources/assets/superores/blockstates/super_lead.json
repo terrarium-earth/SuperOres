@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "normal": { "model": "superores:super_lead" },
+        "inventory": { "model": "superores:super_lead" }
+    }
+}

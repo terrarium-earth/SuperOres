@@ -2,6 +2,7 @@ package abused_master.superores.registry;
 
 import abused_master.superores.Config;
 import abused_master.superores.blocks.BaseOresBlock;
+import abused_master.superores.blocks.ModdedResources;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
@@ -31,6 +32,31 @@ public class ModBlocks {
     public static BaseOresBlock EmeraldOre = new BaseOresBlock("super_emerald", 2.5f, 2,
             Item.getItemFromBlock(Blocks.EMERALD_ORE), Config.EmeraldOreDrop);
 
+    /**
+     * Modded Resources
+     */
+    public static BaseOresBlock AluminumOre = new BaseOresBlock("super_aluminum", 1.0f, 1,
+            ModdedResources.Aluminum.getOreFromDict().getItem(), Config.AluminumOreDrop);
+
+    public static BaseOresBlock CopperOre = new BaseOresBlock("super_copper", 1.0f, 1,
+            ModdedResources.Copper.getOreFromDict().getItem(), Config.CopperOreDrop);
+
+    public static BaseOresBlock LeadOre = new BaseOresBlock("super_lead", 1.2f, 1,
+            ModdedResources.Lead.getOreFromDict().getItem(), Config.LeadOreDrop);
+
+    public static BaseOresBlock SilverOre = new BaseOresBlock("super_silver", 1.4f, 2,
+            ModdedResources.Silver.getOreFromDict().getItem(), Config.SilverOreDrop);
+
+    public static BaseOresBlock NickelOre = new BaseOresBlock("super_nickel", 1.2f, 1,
+            ModdedResources.Nickel.getOreFromDict().getItem(), Config.NickelOreDrop);
+
+    public static BaseOresBlock OsmiumOre = new BaseOresBlock("super_osmium", 1.0f, 1,
+            ModdedResources.Osmium.getOreFromDict().getItem(), Config.OsmiumOreDrop);
+
+    public static BaseOresBlock UraniumOre = new BaseOresBlock("super_uranium", 2.0f, 2,
+            ModdedResources.Uranium.getOreFromDict().getItem(), Config.UraniumOreDrop);
+
+
     public static void initModels() {
         reg(CoalOre);
         reg(IronOre);
@@ -39,6 +65,34 @@ public class ModBlocks {
         reg(DiamondOre);
         reg(EmeraldOre);
         reg(LapisOre);
+
+        if(ModdedResources.Copper.doesOreExist()) {
+            reg(CopperOre);
+        }
+
+        if(ModdedResources.Aluminum.doesOreExist()) {
+            reg(AluminumOre);
+        }
+
+        if(ModdedResources.Lead.doesOreExist()) {
+            reg(LeadOre);
+        }
+
+        if(ModdedResources.Nickel.doesOreExist()) {
+            reg(NickelOre);
+        }
+
+        if(ModdedResources.Osmium.doesOreExist()) {
+            reg(OsmiumOre);
+        }
+
+        if(ModdedResources.Silver.doesOreExist()) {
+            reg(SilverOre);
+        }
+
+        if(ModdedResources.Uranium.doesOreExist()) {
+            reg(UraniumOre);
+        }
     }
 
     public static void reg(Block block) {
