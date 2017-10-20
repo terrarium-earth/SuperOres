@@ -18,23 +18,21 @@ public class ModdedRegistry {
     }
 
     public boolean doesOreExist() {
-        if(OreDictionary.doesOreNameExist(oreDictName)) {
-            return true;
-        }
-        return false;
+       return OreDictionary.doesOreNameExist(oreDictName);
     }
 
     public ItemStack getOreFromDict() {
         if(doesOreExist()) {
-            return getOreDict(oreDictName).copy();
+            return getOreDictItem(oreDictName);
         }
         return ItemStack.EMPTY;
     }
 
-    public static ItemStack getOreDict(String oreIdName) {
-        List<ItemStack> ores = OreDictionary.getOres(oreIdName);
-        if (ores != null && ores.size() > 0)
-            return ores.get(0).copy();
+    public static ItemStack getOreDictItem(String name) {
+        List<ItemStack> ores = OreDictionary.getOres(name);
+        if(ores != null && ores.size() > 0) {
+            return new ItemStack(ores.get(0).copy().getItem(), 1, ores.get(0).getMetadata());
+        }
         return ItemStack.EMPTY;
     }
 }

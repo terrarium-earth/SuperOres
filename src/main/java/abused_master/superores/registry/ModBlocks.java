@@ -44,7 +44,7 @@ public class ModBlocks {
     public static BaseOresBlock LeadOre = new BaseOresBlock("super_lead", 1.2f, 1,
             ModdedResources.Lead.getOreFromDict().getItem(), Config.LeadOreDrop);
 
-    public static BaseOresBlock SilverOre = new BaseOresBlock("super_silver", 1.4f, 2,
+    public static BaseOresBlock SilverOre = new BaseOresBlock("super_silver", 1.8f, 2,
             ModdedResources.Silver.getOreFromDict().getItem(), Config.SilverOreDrop);
 
     public static BaseOresBlock NickelOre = new BaseOresBlock("super_nickel", 1.2f, 1,
