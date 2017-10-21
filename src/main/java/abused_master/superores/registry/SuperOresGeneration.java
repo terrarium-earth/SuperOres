@@ -30,6 +30,8 @@ public class SuperOresGeneration implements IWorldGenerator {
     private WorldGenerator LeadOre;
     private WorldGenerator UraniumOre;
     private WorldGenerator OsmiumOre;
+    private WorldGenerator PlatinumOre;
+    private WorldGenerator TinOre;
 
 
     public SuperOresGeneration() {
@@ -40,6 +42,8 @@ public class SuperOresGeneration implements IWorldGenerator {
         this.LeadOre = new WorldGenMinable(ModBlocks.LeadOre.getDefaultState(), 4);
         this.UraniumOre = new WorldGenMinable(ModBlocks.UraniumOre.getDefaultState(), 3);
         this.OsmiumOre = new WorldGenMinable(ModBlocks.OsmiumOre.getDefaultState(), 3);
+        this.PlatinumOre = new WorldGenMinable(ModBlocks.PlatinumOre.getDefaultState(), 3);
+        this.TinOre = new WorldGenMinable(ModBlocks.TinOre.getDefaultState(), 3);
 
         this.DiamondOre = new WorldGenMinable(ModBlocks.DiamondOre.getDefaultState(), 2);
         this.EmeraldOre = new WorldGenMinable(ModBlocks.EmeraldOre.getDefaultState(), 2);
@@ -103,6 +107,14 @@ public class SuperOresGeneration implements IWorldGenerator {
 
                 if(ModdedResources.Uranium.doesOreExist()) {
                     this.runGenerator(this.UraniumOre, world, random, chunkX, chunkZ, Config.UraniumOreRate, 0, 25);
+                }
+
+                if(ModdedResources.Platinum.doesOreExist()) {
+                    this.runGenerator(this.PlatinumOre, world, random, chunkX, chunkZ, Config.PlatinumOreRate, 0, 25);
+                }
+
+                if(ModdedResources.Tin.doesOreExist()) {
+                    this.runGenerator(this.TinOre, world, random, chunkX, chunkZ, Config.TinOreRate, 0, 50);
                 }
 
                 break;

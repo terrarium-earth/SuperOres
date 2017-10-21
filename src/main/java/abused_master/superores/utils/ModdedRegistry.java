@@ -25,13 +25,16 @@ public class ModdedRegistry {
         if(doesOreExist()) {
             return getOreDictItem(oreDictName);
         }
+        System.out.println(oreDictName + " has no oreExisting found!!");
         return ItemStack.EMPTY;
     }
 
     public static ItemStack getOreDictItem(String name) {
         List<ItemStack> ores = OreDictionary.getOres(name);
         if(ores != null && ores.size() > 0) {
-            return new ItemStack(ores.get(0).copy().getItem(), 1, ores.get(0).getMetadata());
+            ItemStack result = ores.get(0).copy();
+            result.setCount(1);
+            return result;
         }
         return ItemStack.EMPTY;
     }

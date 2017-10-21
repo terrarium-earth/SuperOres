@@ -68,6 +68,14 @@ public class CommonProxy {
         if(ModdedResources.Uranium.doesOreExist()) {
             event.getRegistry().register(ModBlocks.UraniumOre);
         }
+
+        if(ModdedResources.Platinum.doesOreExist()) {
+            event.getRegistry().register(ModBlocks.PlatinumOre);
+        }
+
+        if(ModdedResources.Tin.doesOreExist()) {
+            event.getRegistry().register(ModBlocks.TinOre);
+        }
     }
 
     @SubscribeEvent
@@ -110,6 +118,14 @@ public class CommonProxy {
 
         if(ModdedResources.Uranium.doesOreExist()) {
             event.getRegistry().register(new ItemBlock(ModBlocks.UraniumOre).setRegistryName(ModBlocks.UraniumOre.getRegistryName()));
+        }
+
+        if(ModdedResources.Platinum.doesOreExist()) {
+            event.getRegistry().register(new ItemBlock(ModBlocks.PlatinumOre).setRegistryName(ModBlocks.PlatinumOre.getRegistryName()));
+        }
+
+        if(ModdedResources.Tin.doesOreExist()) {
+            event.getRegistry().register(new ItemBlock(ModBlocks.TinOre).setRegistryName(ModBlocks.TinOre.getRegistryName()));
         }
     }
 }

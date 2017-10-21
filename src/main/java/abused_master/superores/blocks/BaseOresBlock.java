@@ -5,15 +5,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 import java.util.Random;
 
 public class BaseOresBlock extends Block {
 
-    public Item item;
+    public ItemStack item;
     public int quantityMax;
 
-    public BaseOresBlock(String name, float hardness, int hardnessLevel, Item drops, int quantityMax) {
+    public BaseOresBlock(String name, float hardness, int hardnessLevel, ItemStack drops, int quantityMax) {
         super(Material.ROCK);
         this.setRegistryName(name);
         this.setUnlocalizedName(name);
@@ -26,11 +27,16 @@ public class BaseOresBlock extends Block {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return this.item;
+        return this.item.getItem();
+    }
+
+    @Override
+    public int damageDropped(IBlockState state) {
+        return this.item.getMetadata();
     }
 
     @Override
     public int quantityDropped(Random random) {
-        return 1 + random.nextInt(quantityMax);
+        return 2 + random.nextInt(quantityMax);
     }
 }
