@@ -33,6 +33,9 @@ public class ModBlocks {
     public static BaseOresBlock EmeraldOre = new BaseOresBlock("super_emerald", 2.5f, 2,
             new ItemStack(Blocks.EMERALD_ORE), Config.EmeraldOreDrop);
 
+    public static BaseOresBlock QuartzOre = new BaseOresBlock("super_quartz", 1.5f, 2,
+            new ItemStack(Blocks.QUARTZ_ORE), Config.QuartzOreDrop);
+
     /**
      * Modded Resources
      */
@@ -63,6 +66,18 @@ public class ModBlocks {
     public static BaseOresBlock TinOre = new BaseOresBlock("super_tin", 1.7f, 1,
             ModdedResources.Tin.getOreFromDict(), Config.TinOreDrop);
 
+    public static BaseOresBlock ArditeOre = new BaseOresBlock("super_ardite", 2.0f, 3,
+            ModdedResources.Ardite.getOreFromDict(), Config.ArditeOreDrop);
+
+    public static BaseOresBlock CobaltOre = new BaseOresBlock("super_cobalt", 2.0f, 3,
+            ModdedResources.Cobalt.getOreFromDict(), Config.CoalOreDrop);
+
+    public static BaseOresBlock IridiumOre = new BaseOresBlock("super_iridium", 1.7f, 3,
+            ModdedResources.Iridium.getOreFromDict(), Config.IridiumOreDrop);
+
+    public static BaseOresBlock YelloriteOre = new BaseOresBlock("super_yellorite", 1.4f, 1,
+            ModdedResources.Yellorite.getOreFromDict(), Config.YelloriteOreDrop);
+
 
     public static void initModels() {
         reg(CoalOre);
@@ -72,42 +87,21 @@ public class ModBlocks {
         reg(DiamondOre);
         reg(EmeraldOre);
         reg(LapisOre);
+        reg(QuartzOre);
 
-        if(ModdedResources.Copper.doesOreExist()) {
-            reg(CopperOre);
-        }
-
-        if(ModdedResources.Aluminum.doesOreExist()) {
-            reg(AluminumOre);
-        }
-
-        if(ModdedResources.Lead.doesOreExist()) {
-            reg(LeadOre);
-        }
-
-        if(ModdedResources.Nickel.doesOreExist()) {
-            reg(NickelOre);
-        }
-
-        if(ModdedResources.Osmium.doesOreExist()) {
-            reg(OsmiumOre);
-        }
-
-        if(ModdedResources.Silver.doesOreExist()) {
-            reg(SilverOre);
-        }
-
-        if(ModdedResources.Uranium.doesOreExist()) {
-            reg(UraniumOre);
-        }
-
-        if(ModdedResources.Platinum.doesOreExist()) {
-            reg(PlatinumOre);
-        }
-
-        if(ModdedResources.Tin.doesOreExist()) {
-            reg(TinOre);
-        }
+        reg(CopperOre);
+        reg(AluminumOre);
+        reg(LeadOre);
+        reg(NickelOre);
+        reg(OsmiumOre);
+        reg(SilverOre);
+        reg(UraniumOre);
+        reg(PlatinumOre);
+        reg(TinOre);
+        reg(ArditeOre);
+        reg(CobaltOre);
+        reg(IridiumOre);
+        reg(YelloriteOre);
     }
 
     public static void reg(Block block) {

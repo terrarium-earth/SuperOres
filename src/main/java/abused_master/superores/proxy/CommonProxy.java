@@ -1,6 +1,5 @@
 package abused_master.superores.proxy;
 
-import abused_master.superores.blocks.ModdedResources;
 import abused_master.superores.registry.ModBlocks;
 import abused_master.superores.registry.SuperOresGeneration;
 import net.minecraft.block.Block;
@@ -21,7 +20,7 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent e) {
-        GameRegistry.registerWorldGenerator(new SuperOresGeneration(), 0);
+        GameRegistry.registerWorldGenerator(new SuperOresGeneration(), 10);
     }
 
     public void postInit(FMLPostInitializationEvent e) {
@@ -36,46 +35,24 @@ public class CommonProxy {
         event.getRegistry().register(ModBlocks.GoldOre);
         event.getRegistry().register(ModBlocks.DiamondOre);
         event.getRegistry().register(ModBlocks.EmeraldOre);
+        event.getRegistry().register(ModBlocks.QuartzOre);
 
         /**
          * Modded Ores
          */
-
-        if(ModdedResources.Copper.doesOreExist()) {
-            event.getRegistry().register(ModBlocks.CopperOre);
-        }
-
-        if(ModdedResources.Aluminum.doesOreExist()) {
-            event.getRegistry().register(ModBlocks.AluminumOre);
-        }
-
-        if(ModdedResources.Lead.doesOreExist()) {
-            event.getRegistry().register(ModBlocks.LeadOre);
-        }
-
-        if(ModdedResources.Nickel.doesOreExist()) {
-            event.getRegistry().register(ModBlocks.NickelOre);
-        }
-
-        if(ModdedResources.Osmium.doesOreExist()) {
-            event.getRegistry().register(ModBlocks.OsmiumOre);
-        }
-
-        if(ModdedResources.Silver.doesOreExist()) {
-            event.getRegistry().register(ModBlocks.SilverOre);
-        }
-
-        if(ModdedResources.Uranium.doesOreExist()) {
-            event.getRegistry().register(ModBlocks.UraniumOre);
-        }
-
-        if(ModdedResources.Platinum.doesOreExist()) {
-            event.getRegistry().register(ModBlocks.PlatinumOre);
-        }
-
-        if(ModdedResources.Tin.doesOreExist()) {
-            event.getRegistry().register(ModBlocks.TinOre);
-        }
+        event.getRegistry().register(ModBlocks.CopperOre);
+        event.getRegistry().register(ModBlocks.AluminumOre);
+        event.getRegistry().register(ModBlocks.LeadOre);
+        event.getRegistry().register(ModBlocks.NickelOre);
+        event.getRegistry().register(ModBlocks.OsmiumOre);
+        event.getRegistry().register(ModBlocks.SilverOre);
+        event.getRegistry().register(ModBlocks.UraniumOre);
+        event.getRegistry().register(ModBlocks.PlatinumOre);
+        event.getRegistry().register(ModBlocks.TinOre);
+        event.getRegistry().register(ModBlocks.ArditeOre);
+        event.getRegistry().register(ModBlocks.CobaltOre);
+        event.getRegistry().register(ModBlocks.IridiumOre);
+        event.getRegistry().register(ModBlocks.YelloriteOre);
     }
 
     @SubscribeEvent
@@ -87,45 +64,23 @@ public class CommonProxy {
         event.getRegistry().register(new ItemBlock(ModBlocks.GoldOre).setRegistryName(ModBlocks.GoldOre.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.DiamondOre).setRegistryName(ModBlocks.DiamondOre.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.EmeraldOre).setRegistryName(ModBlocks.EmeraldOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.QuartzOre).setRegistryName(ModBlocks.QuartzOre.getRegistryName()));
 
         /**
          * Modded Ores
          */
-
-        if(ModdedResources.Copper.doesOreExist()) {
-            event.getRegistry().register(new ItemBlock(ModBlocks.CopperOre).setRegistryName(ModBlocks.CopperOre.getRegistryName()));
-        }
-
-        if(ModdedResources.Aluminum.doesOreExist()) {
-            event.getRegistry().register(new ItemBlock(ModBlocks.AluminumOre).setRegistryName(ModBlocks.AluminumOre.getRegistryName()));
-        }
-
-        if(ModdedResources.Lead.doesOreExist()) {
-            event.getRegistry().register(new ItemBlock(ModBlocks.LeadOre).setRegistryName(ModBlocks.LeadOre.getRegistryName()));
-        }
-
-        if(ModdedResources.Nickel.doesOreExist()) {
-            event.getRegistry().register(new ItemBlock(ModBlocks.NickelOre).setRegistryName(ModBlocks.NickelOre.getRegistryName()));
-        }
-
-        if(ModdedResources.Osmium.doesOreExist()) {
-            event.getRegistry().register(new ItemBlock(ModBlocks.OsmiumOre).setRegistryName(ModBlocks.OsmiumOre.getRegistryName()));
-        }
-
-        if(ModdedResources.Silver.doesOreExist()) {
-            event.getRegistry().register(new ItemBlock(ModBlocks.SilverOre).setRegistryName(ModBlocks.SilverOre.getRegistryName()));
-        }
-
-        if(ModdedResources.Uranium.doesOreExist()) {
-            event.getRegistry().register(new ItemBlock(ModBlocks.UraniumOre).setRegistryName(ModBlocks.UraniumOre.getRegistryName()));
-        }
-
-        if(ModdedResources.Platinum.doesOreExist()) {
-            event.getRegistry().register(new ItemBlock(ModBlocks.PlatinumOre).setRegistryName(ModBlocks.PlatinumOre.getRegistryName()));
-        }
-
-        if(ModdedResources.Tin.doesOreExist()) {
-            event.getRegistry().register(new ItemBlock(ModBlocks.TinOre).setRegistryName(ModBlocks.TinOre.getRegistryName()));
-        }
+        event.getRegistry().register(new ItemBlock(ModBlocks.CopperOre).setRegistryName(ModBlocks.CopperOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.AluminumOre).setRegistryName(ModBlocks.AluminumOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.LeadOre).setRegistryName(ModBlocks.LeadOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.NickelOre).setRegistryName(ModBlocks.NickelOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.OsmiumOre).setRegistryName(ModBlocks.OsmiumOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.SilverOre).setRegistryName(ModBlocks.SilverOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.UraniumOre).setRegistryName(ModBlocks.UraniumOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.PlatinumOre).setRegistryName(ModBlocks.PlatinumOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.TinOre).setRegistryName(ModBlocks.TinOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.ArditeOre).setRegistryName(ModBlocks.ArditeOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.CobaltOre).setRegistryName(ModBlocks.CobaltOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.IridiumOre).setRegistryName(ModBlocks.IridiumOre.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.YelloriteOre).setRegistryName(ModBlocks.YelloriteOre.getRegistryName()));
     }
 }

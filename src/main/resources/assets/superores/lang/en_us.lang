@@ -7,6 +7,7 @@ tile.super_iron.name=Super Iron Ore
 tile.super_redstone.name=Super Redstone Ore
 tile.super_lapis.name=Super Laips Ore
 tile.super_coal.name=Super Coal Ore
+tile.super_quartz.name=Super Quartz Ore
 
 tile.super_aluminum.name=Super Aluminum Ore
 tile.super_copper.name=Super Copper Ore
@@ -17,3 +18,7 @@ tile.super_osmium.name=Super Osmium Ore
 tile.super_uranium.name=Super Uranium Ore
 tile.super_platinum.name=Super Platinum Ore
 tile.super_tin.name=Super Tin Ore
+tile.super_ardite.name=Super Ardite Ore
+tile.super_cobalt.name=Super Cobalt Ore
+tile.super_iridium.name=Super Iridium Ore
+tile.super_yellorite.name=Super Yellorite Ore

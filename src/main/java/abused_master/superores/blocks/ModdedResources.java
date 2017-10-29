@@ -13,4 +13,9 @@ public class ModdedResources {
     public static ModdedRegistry Uranium = new ModdedRegistry("oreUranium");
     public static ModdedRegistry Platinum = new ModdedRegistry("orePlatinum");
     public static ModdedRegistry Tin = new ModdedRegistry("oreTin");
+
+    public static ModdedRegistry Ardite = new ModdedRegistry("oreArdite");
+    public static ModdedRegistry Cobalt = new ModdedRegistry("oreCobalt");
+    public static ModdedRegistry Iridium = new ModdedRegistry("oreIridium");
+    public static ModdedRegistry Yellorite = new ModdedRegistry("oreYellorite");
 }

@@ -2,6 +2,8 @@ package abused_master.superores.registry;
 
 import abused_master.superores.Config;
 import abused_master.superores.blocks.ModdedResources;
+import net.minecraft.block.state.pattern.BlockMatcher;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -22,6 +24,7 @@ public class SuperOresGeneration implements IWorldGenerator {
     private WorldGenerator CoalOre;
     private WorldGenerator RedstoneOre;
     private WorldGenerator LapisOre;
+    private WorldGenerator QuartzOre;
 
     private WorldGenerator AluminumOre;
     private WorldGenerator CopperOre;
@@ -32,6 +35,10 @@ public class SuperOresGeneration implements IWorldGenerator {
     private WorldGenerator OsmiumOre;
     private WorldGenerator PlatinumOre;
     private WorldGenerator TinOre;
+    private WorldGenerator ArditeOre;
+    private WorldGenerator CobaltOre;
+    private WorldGenerator IridiumOre;
+    private WorldGenerator YelloriteOre;
 
 
     public SuperOresGeneration() {
@@ -44,6 +51,10 @@ public class SuperOresGeneration implements IWorldGenerator {
         this.OsmiumOre = new WorldGenMinable(ModBlocks.OsmiumOre.getDefaultState(), 3);
         this.PlatinumOre = new WorldGenMinable(ModBlocks.PlatinumOre.getDefaultState(), 3);
         this.TinOre = new WorldGenMinable(ModBlocks.TinOre.getDefaultState(), 3);
+        this.ArditeOre = new WorldGenMinable(ModBlocks.ArditeOre.getDefaultState(), 4, BlockMatcher.forBlock(Blocks.NETHERRACK));
+        this.CobaltOre = new WorldGenMinable(ModBlocks.CobaltOre.getDefaultState(), 4, BlockMatcher.forBlock(Blocks.NETHERRACK));
+        this.IridiumOre = new WorldGenMinable(ModBlocks.IridiumOre.getDefaultState(), 3);
+        this.YelloriteOre = new WorldGenMinable(ModBlocks.YelloriteOre.getDefaultState(), 3);
 
         this.DiamondOre = new WorldGenMinable(ModBlocks.DiamondOre.getDefaultState(), 2);
         this.EmeraldOre = new WorldGenMinable(ModBlocks.EmeraldOre.getDefaultState(), 2);
@@ -52,6 +63,7 @@ public class SuperOresGeneration implements IWorldGenerator {
         this.CoalOre = new WorldGenMinable(ModBlocks.CoalOre.getDefaultState(), 4);
         this.RedstoneOre = new WorldGenMinable(ModBlocks.RedstoneOre.getDefaultState(), 3);
         this.LapisOre = new WorldGenMinable(ModBlocks.LapisOre.getDefaultState(), 3);
+        this.QuartzOre = new WorldGenMinable(ModBlocks.QuartzOre.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.NETHERRACK));
     }
 
     private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
@@ -86,7 +98,7 @@ public class SuperOresGeneration implements IWorldGenerator {
                 }
 
                 if(ModdedResources.Aluminum.doesOreExist()) {
-                    this.runGenerator(this.AluminumOre, world, random, chunkX, chunkZ, Config.AluminumOreDrop, 0, 64);
+                    this.runGenerator(this.AluminumOre, world, random, chunkX, chunkZ, Config.AluminumOreRate, 0, 64);
                 }
 
                 if(ModdedResources.Lead.doesOreExist()) {
@@ -117,8 +129,25 @@ public class SuperOresGeneration implements IWorldGenerator {
                     this.runGenerator(this.TinOre, world, random, chunkX, chunkZ, Config.TinOreRate, 0, 50);
                 }
 
+                if(ModdedResources.Iridium.doesOreExist()) {
+                    this.runGenerator(this.IridiumOre, world, random, chunkX, chunkZ, Config.IridiumOreRate, 0, 25);
+                }
+
+                if(ModdedResources.Yellorite.doesOreExist()) {
+                    this.runGenerator(this.YelloriteOre, world, random, chunkX, chunkZ, Config.YelloriteOreRate, 0, 50);
+                }
+
                 break;
             case -1: //Nether
+                this.runGenerator(this.QuartzOre, world, random, chunkX, chunkZ, Config.QuartzOreRate, 0, 256);
+
+                if(ModdedResources.Ardite.doesOreExist()) {
+                    this.runGenerator(this.ArditeOre, world, random, chunkX, chunkZ, Config.ArditeOreRate, 0, 256);
+                }
+
+                if(ModdedResources.Cobalt.doesOreExist()) {
+                    this.runGenerator(this.CobaltOre, world, random, chunkX, chunkZ, Config.CobaltOreRate, 0, 256);
+                }
 
                 break;
             case 1: //End

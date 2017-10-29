@@ -10,15 +10,16 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = SuperOres.MODID, name = SuperOres.MODNAME, version = SuperOres.VERSION, acceptedMinecraftVersions = SuperOres.ACCEPTED_VERSIONS)
+@Mod(modid = SuperOres.MODID, name = SuperOres.MODNAME, version = SuperOres.VERSION,
+acceptedMinecraftVersions = SuperOres.ACCEPTED_VERSIONS)
 public class SuperOres {
 
     public static final String MODID = "superores";
-    public static final String MODNAME = "SuperOres";
+    public static final String MODNAME = "Super Ores";
     public static final String VERSION = "1.8.1_1.12";
     public static final String ACCEPTED_VERSIONS = "[1.12,1.12.2]";
 
-    @SidedProxy(clientSide = "abused_master.superores.proxy.ClientProxy", serverSide = "abused_master.proxy.CommonProxy")
+    @SidedProxy(clientSide = "abused_master.superores.proxy.ClientProxy", serverSide = "abused_master.superores.proxy.CommonProxy")
     static CommonProxy proxy;
 
     @Mod.EventHandler

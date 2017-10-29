@@ -25,7 +25,7 @@ public class ModdedRegistry {
         if(doesOreExist()) {
             return getOreDictItem(oreDictName);
         }
-        System.out.println(oreDictName + " has no oreExisting found!!");
+        System.out.println(oreDictName + " has no ore found!!");
         return ItemStack.EMPTY;
     }
 

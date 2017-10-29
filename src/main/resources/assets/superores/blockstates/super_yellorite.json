@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "normal": { "model": "superores:super_yellorite" },
+        "inventory": { "model": "superores:super_yellorite" }
+    }
+}
