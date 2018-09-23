@@ -2,8 +2,8 @@
 {
   "modid": "superores",
   "name": "SuperOres",
-  "description": "A mod made for extra resources.",
-  "version": "${version}",
+  "description": "A greater gain in resources",
+  "version": "1.9.0",
   "mcversion": "1.12",
   "url": "https://minecraft.curseforge.com/projects/super-ores",
   "updateUrl": "",
