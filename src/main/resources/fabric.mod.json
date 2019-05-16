@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "superores",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "name": "Super Ores",
   "description": "A ore gen mod that adds more drops to certain ores!",
   "authors": [
