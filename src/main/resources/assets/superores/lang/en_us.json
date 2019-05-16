@@ -1,0 +1,18 @@
+{
+  "itemGroup.superores.superores" : "Super Ores",
+  "block.superores.super_aluminum_ore" : "Super Aluminum Ore",
+  "block.superores.super_coal_ore" : "Super Coal Ore",
+  "block.superores.super_copper_ore" : "Super Copper Ore",
+  "block.superores.super_diamond_ore" : "Super Diamond Ore",
+  "block.superores.super_emerald_ore" : "Super Emerald Ore",
+  "block.superores.super_gold_ore" : "Super Gold Ore",
+  "block.superores.super_iron_ore" : "Super Iron Ore",
+  "block.superores.super_lapis_ore" : "Super Lapis Ore",
+  "block.superores.super_lead_ore" : "Super Lead Ore",
+  "block.superores.super_nickel_ore" : "Super Nickel Ore",
+  "block.superores.super_platinum_ore" : "Super Platinum Ore",
+  "block.superores.super_quartz_ore" : "Super Quartz Ore",
+  "block.superores.super_redstone_ore" : "Super Redstone Ore",
+  "block.superores.super_silver_ore" : "Super Silver Ore",
+  "block.superores.super_tin_ore" : "Super Tin Ore"
+}

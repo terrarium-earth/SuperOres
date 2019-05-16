@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "superores",
+  "version": "2.0.0",
+  "name": "Super Ores",
+  "description": "A ore gen mod that adds more drops to certain ores!",
+  "authors": [
+    "abused_master"
+  ],
+  "contact": {
+    "homepage": "https://minecraft.curseforge.com/projects/super-ores",
+    "sources": "https://github.com/abused/SuperOres"
+  },
+
+  "license": "MIT",
+  "icon": "assets/superores/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "abused_master.superores.SuperOres"
+    ]
+  },
+  "mixins": [
+    "superores.mixins.json"
+  ],
+  "requires": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  }
+}

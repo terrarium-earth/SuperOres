@@ -1,52 +1,25 @@
 package abused_master.superores;
 
-import abused_master.superores.proxy.CommonProxy;
-import abused_master.superores.registry.ModResources;
-import net.minecraft.creativetab.CreativeTabs;
+import abused_master.superores.registry.ModBlocks;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.item.Items;
+import net.minecraft.util.Identifier;
 
-@Mod(modid = Info.MODID, name = Info.MODNAME, version = Info.VERSION, acceptedMinecraftVersions = Info.ACCEPTED_VERSIONS, dependencies = "required-after:forge@[14.23.1.2577,);after:mekanism;after:*;after:tconstruct;after:bigreactors;after:appliedenergistics2")
-public class SuperOres {
-	
-    @SidedProxy(clientSide = "abused_master.superores.proxy.ClientProxy", serverSide = "abused_master.superores.proxy.CommonProxy")
-    public static CommonProxy proxy;
+import java.io.File;
 
-    @Mod.EventHandler
-    public void preinit(FMLPreInitializationEvent e) {
-        this.proxy.preInit(e);
-        MinecraftForge.EVENT_BUS.register(this);
-    }
+public class SuperOres implements ModInitializer {
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent e) {
-        this.proxy.init(e);
-    }
+    public static final String MODID = "superores";
+    public static ItemGroup modItemGroup = FabricItemGroupBuilder.build(new Identifier(MODID, MODID), () -> new ItemStack(Items.DIAMOND_PICKAXE));
+    public static File configFile = new File(FabricLoader.getInstance().getConfigDirectory().getPath() + "/superores.json");
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent e) {
-        this.proxy.postInit(e);
-    }
-
-    public static CreativeTabs SuperOresTab = new CreativeTabs("superores") {
-        @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(ModResources.ORES.get(0));
-        }
-    };
-
-    @SubscribeEvent
- 	public void onNameFormat(PlayerEvent.NameFormat event) {
-        if (event.getUsername().compareTo("abused_master") == 0) {
-            event.setDisplayname(TextFormatting.LIGHT_PURPLE + event.getUsername());
-        }
+    @Override
+    public void onInitialize() {
+        ModBlocks.register();
+        //ModBlocks.registerWorldGen();
     }
 }

@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "normal": { "model": "superores:super_iridium" },
-        "inventory": { "model": "superores:super_iridium" }
-    }
-}

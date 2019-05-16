@@ -1,45 +1,93 @@
-buildscript {
-    repositories {
-        jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-    }
+plugins {
+	id 'fabric-loom' version '0.2.1-SNAPSHOT'
+	id 'maven-publish'
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.9.0-1.12"
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 group = "abused_master.superores"
-archivesBaseName = "superores"
-
-sourceCompatibility = targetCompatibility = '1.8'
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
-}
+archivesBaseName = "SuperOres"
+version = "${mod_version}"
 
 minecraft {
-    version = "1.12.2-14.23.4.2759"
-    runDir = "run"
+}
 
-    mappings = "snapshot_20171003"
+repositories {
+	jcenter()
+	maven { url = "https://oss.sonatype.org/content/repositories/releases/" }
 }
 
 dependencies {
-
+	minecraft "com.mojang:minecraft:${mc_version}"
+	mappings "net.fabricmc:yarn:${yarn_mappings}"
+	modCompile "net.fabricmc:fabric-loader:${loader_version}"
+	modCompile "net.fabricmc:fabric:${fabric_version}"
+	
+	compileOnly "com.google.code.findbugs:jsr305:${findbugs_version}"
 }
 
-processResources {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+jar {
+	from "LICENSE.md"
+	manifest.mainAttributes(
+			"Implementation-Title": project.name,
+			"Implementation-Version": project.version,
+			"Maven-Artifact": "${project.group}:${project.archivesBaseName}:${project.version}".toLowerCase(Locale.ROOT),
+			"Built-On-Minecraft": "${mc_version}",
+			"Built-On-Java": "${System.getProperty("java.vm.version")} (${System.getProperty("java.vm.vendor")})"
+	)
 }
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+	from sourceSets.main.allSource
+	classifier = 'sources'
+}
+
+artifacts {
+	archives sourcesJar
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifact jar
+			artifact sourcesJar
+			pom {
+				name = "SuperOres"
+				url = "https://github.com/abused/SuperOres"
+				licenses {
+					license {
+						name = "MIT License"
+						url = "https://github.com/abused/SuperOres/blob/master/LICENSE.md"
+					}
+				}
+				scm {
+					url = "https://github.com/abused/SuperOres"
+					connection = "scm:git:git://github.com/abused/SuperOres.git"
+					developerConnection = "scm:git:git@github.com:abused/SuperOres.git"
+				}
+				issueManagement {
+					system = "github"
+					url = "https://github.com/abused/SuperOres/issues"
+				}
+			}
+		}
+	}
+
+	repositories {
+		if (project.hasProperty("maven_user") && project.hasProperty("maven_pass")) {
+			maven {
+				name = "Abused's Maven"
+				url = findProperty("maven_url")
+				credentials {
+					username = findProperty("maven_user")
+					password = findProperty("maven_pass")
+				}
+				authentication {
+					basic(BasicAuthentication)
+				}
+			}
+		}
+	}
+}
+tasks.publish.dependsOn build
