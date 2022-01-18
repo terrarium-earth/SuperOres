@@ -28,6 +28,7 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.nio.file.Path;
 
 @Mod(SuperOres.MODID)
@@ -67,7 +68,7 @@ public class SuperOres {
     }
 
     private void initClient(FMLClientSetupEvent event) {
-        //ModClient.initClient(event);
+        ModClient.initClient(event);
     }
 
     public void onPackFinder(AddPackFindersEvent event) {
@@ -77,6 +78,11 @@ public class SuperOres {
 
     private static void loadConfig(ForgeConfigSpec config, String location) {
         Path path = FMLPaths.CONFIGDIR.get().resolve(location);
+        File configFolder = path.getParent().toFile();
+        if(!configFolder.exists()) {
+            configFolder.mkdirs();
+        }
+
         CommentedFileConfig data = CommentedFileConfig.builder(path).sync().autosave().writingMode(WritingMode.REPLACE).build();
         data.load();
         config.setConfig(data);
