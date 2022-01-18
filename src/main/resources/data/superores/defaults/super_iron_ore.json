@@ -1,0 +1,22 @@
+{
+  "name": "iron_ore",
+  "hasDeepslate": true,
+  "properties": {
+    "strength": 4.0,
+    "requiredTool": "stone_pickaxe"
+  },
+  "drops": {
+    "id": "minecraft:raw_iron",
+    "rate": {
+      "min_inclusive": 2,
+      "max_inclusive": 5
+    }
+  },
+  "spawnRate": {
+    "spawnDimension": "overworld",
+    "veinSize": 4,
+    "spawnFrequency": 6,
+    "minSpawnY": -63,
+    "maxSpawnY": 50
+  }
+}

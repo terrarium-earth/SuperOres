@@ -1,0 +1,22 @@
+{
+  "name": "lapis_lazuli_ore",
+  "hasDeepslate": true,
+  "properties": {
+    "strength": 3.0,
+    "requiredTool": "stone_pickaxe"
+  },
+  "drops": {
+    "id": "minecraft:lapis_lazuli",
+    "rate": {
+      "min_inclusive": 2,
+      "max_inclusive": 8
+    }
+  },
+  "spawnRate": {
+    "spawnDimension": "overworld",
+    "veinSize": 6,
+    "spawnFrequency": 2,
+    "minSpawnY": -63,
+    "maxSpawnY": 15
+  }
+}

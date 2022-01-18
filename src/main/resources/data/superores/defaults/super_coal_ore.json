@@ -1,0 +1,22 @@
+{
+  "name": "coal_ore",
+  "hasDeepslate": true,
+  "properties": {
+    "strength": 2.0,
+    "requiredTool": "wood_pickaxe"
+  },
+  "drops": {
+    "id": "minecraft:coal",
+    "rate": {
+      "min_inclusive": 2,
+      "max_inclusive": 8
+    }
+  },
+  "spawnRate": {
+    "spawnDimension": "overworld",
+    "veinSize": 6,
+    "spawnFrequency": 8,
+    "minSpawnY": -63,
+    "maxSpawnY": 255
+  }
+}

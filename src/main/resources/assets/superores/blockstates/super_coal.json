@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "normal": { "model": "superores:super_coal" },
-        "inventory": { "model": "superores:super_coal" }
-    }
-}

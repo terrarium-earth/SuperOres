@@ -1,0 +1,22 @@
+{
+  "name": "emerald_ore",
+  "hasDeepslate": true,
+  "properties": {
+    "strength": 4.0,
+    "requiredTool": "diamond_pickaxe"
+  },
+  "drops": {
+    "id": "minecraft:emerald",
+    "rate": {
+      "min_inclusive": 2,
+      "max_inclusive": 4
+    }
+  },
+  "spawnRate": {
+    "spawnDimension": "overworld",
+    "veinSize": 6,
+    "spawnFrequency": 10,
+    "minSpawnY": -63,
+    "maxSpawnY": 10
+  }
+}

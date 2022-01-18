@@ -1,0 +1,21 @@
+{
+  "name": "nether_gold_ore",
+  "properties": {
+    "strength": 3.0,
+    "requiredTool": "iron_pickaxe"
+  },
+  "drops": {
+    "id": "minecraft:gold_nugget",
+    "rate": {
+      "min_inclusive": 3,
+      "max_inclusive": 7
+    }
+  },
+  "spawnRate": {
+    "spawnDimension": "nether",
+    "veinSize": 6,
+    "spawnFrequency": 6,
+    "minSpawnY": -63,
+    "maxSpawnY": 255
+  }
+}

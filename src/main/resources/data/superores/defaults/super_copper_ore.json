@@ -1,0 +1,22 @@
+{
+  "name": "copper_ore",
+  "hasDeepslate": true,
+  "properties": {
+    "strength": 4.0,
+    "requiredTool": "iron_pickaxe"
+  },
+  "drops": {
+    "id": "minecraft:raw_copper",
+    "rate": {
+      "min_inclusive": 2,
+      "max_inclusive": 5
+    }
+  },
+  "spawnRate": {
+    "spawnDimension": "overworld",
+    "veinSize": 6,
+    "spawnFrequency": 8,
+    "minSpawnY": -63,
+    "maxSpawnY": 40
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "gold_ore",
+  "hasDeepslate": true,
+  "properties": {
+    "strength": 3.0,
+    "requiredTool": "iron_pickaxe"
+  },
+  "drops": {
+    "id": "minecraft:raw_gold",
+    "rate": {
+      "min_inclusive": 2,
+      "max_inclusive": 5
+    }
+  },
+  "spawnRate": {
+    "spawnDimension": "overworld",
+    "veinSize": 4,
+    "spawnFrequency": 3,
+    "minSpawnY": -63,
+    "maxSpawnY": 20
+  }
+}

@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[39,)"
+license="MIT"
+
+[[mods]]
+modId="superores"
+version="${file.jarVersion}"
+displayName="SuperOres"
+logoFile="logo.png"
+authors="abused_master"
+description='''
+A highly configurable ore gen mod that adds denser variants of orers that drop more resources!
+'''
+
+[[dependencies.superores]]
+    modId="forge"
+    mandatory=true
+    versionRange="[39,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.superores]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.1,1.19)"
+    ordering="NONE"
+    side="BOTH"

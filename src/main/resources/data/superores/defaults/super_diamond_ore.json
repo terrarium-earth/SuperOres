@@ -1,0 +1,22 @@
+{
+  "name": "diamond_ore",
+  "hasDeepslate": true,
+  "properties": {
+    "strength": 5.0,
+    "requiredTool": "iron_pickaxe"
+  },
+  "drops": {
+    "id": "minecraft:diamond",
+    "rate": {
+      "min_inclusive": 2,
+      "max_inclusive": 4
+    }
+  },
+  "spawnRate": {
+    "spawnDimension": "overworld",
+    "veinSize": 4,
+    "spawnFrequency": 4,
+    "minSpawnY": -63,
+    "maxSpawnY": 12
+  }
+}
