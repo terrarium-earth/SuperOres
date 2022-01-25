@@ -58,8 +58,10 @@ public class SuperOres {
             CommonConfig.GENERATE_DEFAULTS.set(false);
             CommonConfig.GENERATE_DEFAULTS.save();
 
-            ClientConfig.GENERATE_LANG.set(false);
-            ClientConfig.GENERATE_LANG.save();
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
+                ClientConfig.GENERATE_LANG.set(false);
+                ClientConfig.GENERATE_LANG.save();
+            });
         }
     }
 
@@ -79,7 +81,7 @@ public class SuperOres {
     private static void loadConfig(ForgeConfigSpec config, String location) {
         Path path = FMLPaths.CONFIGDIR.get().resolve(location);
         File configFolder = path.getParent().toFile();
-        if(!configFolder.exists()) {
+        if (!configFolder.exists()) {
             configFolder.mkdirs();
         }
 
