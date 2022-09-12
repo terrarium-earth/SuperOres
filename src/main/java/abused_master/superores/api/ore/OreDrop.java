@@ -10,7 +10,7 @@ import net.minecraft.world.item.Item;
 public record OreDrop(ResourceLocation item, UniformInt dropChance) {
 
     public static final Codec<OreDrop> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            ResourceLocation.CODEC.fieldOf("item").forGetter(OreDrop::item),
+            ResourceLocation.CODEC.fieldOf("id").forGetter(OreDrop::item),
             UniformInt.CODEC.fieldOf("rate").orElse(UniformInt.of(1, 2)).forGetter(OreDrop::dropChance)
     ).apply(instance, OreDrop::new));
 }

@@ -56,23 +56,23 @@ public class ModBlocks {
         OreConfig config = OreConfig.CODEC.parse(JsonOps.INSTANCE, json).getOrThrow(false, s -> SuperOres.LOGGER.error("Could not create custom Super Ore for {}", s));
         OreEntry entry = new OreEntry(config);
 
-        var oreBlock = BLOCKS.register("super_" + config.name(), () -> new SuperOreBlock(entry));
-        ITEMS.register("super_" + config.name(), () -> new BlockItem(oreBlock.get(), new Item.Properties().tab(TAB)));
+        var oreBlock = BLOCKS.register(config.prefix() + "_" + config.name(), () -> new SuperOreBlock(entry));
+        ITEMS.register(config.prefix() + "_" + config.name(), () -> new BlockItem(oreBlock.get(), new Item.Properties().tab(TAB)));
         entry.setOreBlock(oreBlock);
-        addLangEntry(false, config.name());
+        addLangEntry(config.prefix(), false, config.name());
 
         if (config.hasDeepslate()) {
-            var deepslate = BLOCKS.register("super_deepslate_" + config.name(), () -> new SuperOreBlock(entry, true));
-            ITEMS.register("super_deepslate_" + config.name(), () -> new BlockItem(deepslate.get(), new Item.Properties().tab(TAB)));
+            var deepslate = BLOCKS.register(config.prefix() + "_deepslate_" + config.name(), () -> new SuperOreBlock(entry, true));
+            ITEMS.register(config.prefix() + "_deepslate_" + config.name(), () -> new BlockItem(deepslate.get(), new Item.Properties().tab(TAB)));
             entry.setDeepslateOreBlock(deepslate);
-            addLangEntry(true, config.name());
+            addLangEntry(config.prefix(),true, config.name());
         }
 
         ORES.put(config.name(), entry);
     }
 
-    private static void addLangEntry(boolean isDeepSlate, String configName) {
-        String name = (isDeepSlate ? "super_deepslate_" : "super_") + configName;
+    private static void addLangEntry(String prefix, boolean isDeepSlate, String configName) {
+        String name = prefix + (isDeepSlate ? "_deepslate_" : "_") + configName;
         LANG_TABLE.put(ModResources.LANG_PREFIX + name, WordUtils.capitalizeFully(name.replaceAll("_", " ")));
     }
 }
