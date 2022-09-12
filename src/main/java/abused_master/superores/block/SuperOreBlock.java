@@ -1,10 +1,12 @@
 package abused_master.superores.block;
 
+import net.minecraft.core.Registry;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -30,7 +32,7 @@ public class SuperOreBlock extends Block {
         List<ItemStack> drops = super.getDrops(state, builder);
         if (drops.isEmpty()) {
             int amount = oreEntry.getConfig().oreDrop().dropChance().sample(RANDOM);
-            drops.add(new ItemStack(oreEntry.getConfig().oreDrop().item(), amount));
+            drops.add(new ItemStack(Registry.ITEM.get(oreEntry.getConfig().oreDrop().item()), amount));
         }
 
         return drops;

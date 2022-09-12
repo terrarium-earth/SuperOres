@@ -68,7 +68,7 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${project.forge_version}"
-    implementation fg.deobf("mezz.jei:jei-1.18.1:${project.jei_version}")
+    implementation fg.deobf("mezz.jei:jei-${project.mappings_version}:${project.jei_version}")
 }
 
 jar {

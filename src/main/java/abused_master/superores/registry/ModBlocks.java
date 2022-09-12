@@ -12,6 +12,7 @@ import com.mojang.serialization.JsonOps;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -39,7 +40,7 @@ public class ModBlocks {
     public static final Map<String, OreEntry> ORES = new HashMap<>();
     public static final Map<String, String> LANG_TABLE = new HashMap<>();
 
-    public static final Tag.Named<Block> SUPER_ORES = BlockTags.createOptional(new ResourceLocation(SuperOres.MODID, "ores/superores"));
+    public static final TagKey<Block> SUPER_ORES = BlockTags.create(new ResourceLocation(SuperOres.MODID, "ores/superores"));
 
     public static void init() {
         Path path = FMLPaths.CONFIGDIR.get().resolve("superores/ores");
@@ -55,25 +56,23 @@ public class ModBlocks {
         OreConfig config = OreConfig.CODEC.parse(JsonOps.INSTANCE, json).getOrThrow(false, s -> SuperOres.LOGGER.error("Could not create custom Super Ore for {}", s));
         OreEntry entry = new OreEntry(config);
 
-        SuperOreBlock oreBlock = new SuperOreBlock(entry);
-        BLOCKS.register("super_" + config.name(), () -> oreBlock);
-        ITEMS.register("super_" + config.name(), () -> new BlockItem(oreBlock, new Item.Properties().tab(TAB)));
+        var oreBlock = BLOCKS.register("super_" + config.name(), () -> new SuperOreBlock(entry));
+        ITEMS.register("super_" + config.name(), () -> new BlockItem(oreBlock.get(), new Item.Properties().tab(TAB)));
         entry.setOreBlock(oreBlock);
-        addLangEntry(oreBlock, config.name());
+        addLangEntry(false, config.name());
 
         if (config.hasDeepslate()) {
-            SuperOreBlock deepslate = new SuperOreBlock(entry, true);
-            BLOCKS.register("super_deepslate_" + config.name(), () -> deepslate);
-            ITEMS.register("super_deepslate_" + config.name(), () -> new BlockItem(deepslate, new Item.Properties().tab(TAB)));
+            var deepslate = BLOCKS.register("super_deepslate_" + config.name(), () -> new SuperOreBlock(entry, true));
+            ITEMS.register("super_deepslate_" + config.name(), () -> new BlockItem(deepslate.get(), new Item.Properties().tab(TAB)));
             entry.setDeepslateOreBlock(deepslate);
-            addLangEntry(deepslate, config.name());
+            addLangEntry(true, config.name());
         }
 
         ORES.put(config.name(), entry);
     }
 
-    private static void addLangEntry(SuperOreBlock block, String configName) {
-        String name = (block.isDeepslate() ? "super_deepslate_" : "super_") + configName;
+    private static void addLangEntry(boolean isDeepSlate, String configName) {
+        String name = (isDeepSlate ? "super_deepslate_" : "super_") + configName;
         LANG_TABLE.put(ModResources.LANG_PREFIX + name, WordUtils.capitalizeFully(name.replaceAll("_", " ")));
     }
 }
