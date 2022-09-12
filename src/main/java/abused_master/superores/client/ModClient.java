@@ -54,12 +54,12 @@ public class ModClient {
         for (OreEntry oreEntry : ModBlocks.ORES.values()) {
             oreEntry.getConfig().textureData().ifPresent(textureData -> {
                 if (textureData.hasColor()) {
-                    mc.getBlockColors().register((state, reader, pos, tintIndex) -> textureData.color(), oreEntry.getOreBlock());
-                    mc.getItemColors().register((stack, tintIndex) -> textureData.color(), oreEntry.getOreBlock());
+                    mc.getBlockColors().register((state, reader, pos, tintIndex) -> tintIndex == 1 ? textureData.color() : 0xFFFFFF, oreEntry.getOreBlock());
+                    mc.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? textureData.color() : 0xFFFFFF, oreEntry.getOreBlock());
 
                     if (oreEntry.getDeepslateOreBlock() != null) {
-                        mc.getBlockColors().register((state, reader, pos, tintIndex) -> textureData.color(), oreEntry.getDeepslateOreBlock());
-                        mc.getItemColors().register((stack, tintIndex) -> textureData.color(), oreEntry.getDeepslateOreBlock());
+                        mc.getBlockColors().register((state, reader, pos, tintIndex) -> tintIndex == 1 ? textureData.color() : 0xFFFFFF, oreEntry.getDeepslateOreBlock());
+                        mc.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? textureData.color() : 0xFFFFFF, oreEntry.getDeepslateOreBlock());
                     }
                 }
 

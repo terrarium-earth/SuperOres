@@ -73,7 +73,6 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${project.forge_version}"
     implementation fg.deobf("mezz.jei:jei-${project.mappings_version}:${project.jei_version}")
-    runtimeOnly fg.deobf("appeng:appliedenergistics2:${project.ae_version}")
 }
 
 jar {
